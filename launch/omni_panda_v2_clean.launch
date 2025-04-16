@@ -1,0 +1,18 @@
+<launch>
+ 
+  <!-- load the controllers -->  
+  <node name="omni_panda_cpp" pkg="cleft_ik" type="omni_panda_cpp" output="screen"> 
+  </node>
+
+
+  <!-- Launch Robot 1 -->
+  <group ns="panda1">
+    <param name="robot_description" command="cat $(find franka_description)/urdfs/fr3_franka_hand_teng4modified1ok.urdf" /> 
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+  </group>
+
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find franka_description)/rviz/robot_teng4modified1ok.rviz" required="true" > -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find franka_description)/rviz/visualize_franka_teng4modified1ok.rviz" required="true" >
+  </node>
+  
+</launch>
